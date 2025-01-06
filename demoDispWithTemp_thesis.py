@@ -53,7 +53,7 @@ ns.setparam('hematite','Ah',[Ahom,Ahom])
 ns.setparam('hematite','Anh',[0,0])
 ns.setparam('hematite','K1_AFM',[K1,K1])
 
-output_file = 'path' 
+output_file = 'test' 
 
 #make sure output file is wiped clean
 ns.dp_newfile(output_file)
@@ -125,6 +125,6 @@ ax1.set_ylabel('f (THz)')
 
 plt.tight_layout()
 
-plt.savefig('file.pdf', dpi = 600)
+plt.savefig('test.pdf', dpi = 600)
 
 plt.show()
