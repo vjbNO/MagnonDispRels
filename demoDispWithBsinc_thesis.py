@@ -35,7 +35,7 @@ L = meshdim[0]
 kc = 2*np.pi*N/(2*L)
 
 cellsize = [mesh_step,mesh_step,mesh_step]
-'''
+
 #sinc pulse time centre (s) and total time to simulate (s)
 #increase t0 if you want better resolution
 t0 = 10e-12 #200e-12
@@ -89,7 +89,7 @@ ns.setparam('hematite','K1_AFM',[K1,K1])
 
 
 #make sure output file is wiped clean
-output_file = 'path'
+output_file = 'test'
 ns.dp_newfile(output_file)
 
 ns.setode('LLG', 'RK4')
@@ -126,8 +126,8 @@ fourier_data = np.fft.fftshift(np.abs(np.fft.fft2(pos_time)))
 #get value ranges
 freq_len = len(fourier_data)
 k_len = len(fourier_data[0])
-freq = sp.fft.fftfreq(freq_len, time_step)
-kvector = sp.fft.fftfreq(k_len, mesh_step)
+freq = np.fft.fftfreq(freq_len, time_step)
+kvector = np.fft.fftfreq(k_len, mesh_step)
 
 #maximum k and f values
 k_max = 2*np.pi*kvector[int(0.5 * len(kvector))]*mesh_step
@@ -148,6 +148,6 @@ ax1.set_xlabel('qa')
 ax1.set_ylabel('f (THz)')
 plt.tight_layout()
 
-plt.savefig('name.pdf', dpi = 600)
+plt.savefig('test.pdf', dpi = 600)
 
 plt.show()
